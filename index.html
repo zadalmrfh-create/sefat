@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>بطاقات التوحيد</title>
-  <script src="/_sdk/element_sdk.js"></script>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <style>
     * {
@@ -98,17 +97,16 @@
   <style>body { box-sizing: border-box; }</style>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js" type="text/javascript"></script>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
  </head>
  <body class="h-full bg-gradient-to-br from-slate-50 to-slate-100">
   <div class="app-wrapper w-full h-full overflow-auto">
-   <div class="min-h-full w-full max-w-4xl mx-auto p-6">
-    <!-- Header -->
+   <div class="min-h-full w-full max-w-4xl mx-auto p-6"><!-- Header -->
     <div class="mb-8 text-center animate-fade-in">
      <h1 class="page-title text-4xl font-bold text-slate-800 mb-2">بطاقات التوحيد التفاعلية</h1>
      <p class="lesson-name text-lg text-slate-600">الصفات السلبية وأدلتها</p>
     </div><!-- Flashcards Container -->
-    <div class="space-y-6">
-     <!-- Flashcard 1 -->
+    <div class="space-y-6"><!-- Flashcard 1 -->
      <div class="flashcard" data-id="1">
       <div class="flashcard-inner">
        <div class="flashcard-front">
@@ -670,8 +668,7 @@
      <div class="progress-bar">
       <div class="progress-fill" id="progressFill" style="width: 0%"></div>
      </div>
-     <div class="counter">
-      <span id="currentCard">0</span> من <span id="totalCards">29</span> بطاقة تمت مراجعتها
+     <div class="counter"><span id="currentCard">0</span> من <span id="totalCards">29</span> بطاقة تمت مراجعتها
      </div>
     </div><!-- Footer -->
     <div class="text-center mt-8 text-slate-600 text-sm pb-6">
@@ -688,50 +685,36 @@
     let config = { ...defaultConfig };
     let reviewedCards = new Set();
 
-    // Initialize Element SDK
-    window.elementSdk.init({
-      defaultConfig,
-      onConfigChange: (newConfig) => {
-        config = newConfig;
-        document.querySelector('.page-title').textContent = config.page_title || defaultConfig.page_title;
-        document.querySelector('.lesson-name').textContent = config.lesson_name || defaultConfig.lesson_name;
-      },
-      mapToCapabilities: (cfg) => ({
-        recolorables: [],
-        borderables: [],
-        fontEditable: undefined,
-        fontSizeable: undefined
-      }),
-      mapToEditPanelValues: (cfg) => new Map([
-        ["page_title", cfg.page_title || defaultConfig.page_title],
-        ["lesson_name", cfg.lesson_name || defaultConfig.lesson_name]
-      ])
-    });
-
-    // Flashcard functionality
-    const flashcards = document.querySelectorAll('.flashcard');
-    const totalCards = flashcards.length;
-
-    flashcards.forEach((card) => {
-      card.addEventListener('click', () => {
-        card.classList.toggle('flipped');
-        
-        const cardId = card.dataset.id;
-        if (!reviewedCards.has(cardId)) {
-          reviewedCards.add(cardId);
-          updateProgress();
-        }
-      });
-    });
-
-    function updateProgress() {
-      const reviewed = reviewedCards.size;
-      const percentage = (reviewed / totalCards) * 100;
+    // Update titles on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.page-title').textContent = config.page_title;
+      document.querySelector('.lesson-name').textContent = config.lesson_name;
       
-      document.getElementById('progressFill').style.width = percentage + '%';
-      document.getElementById('currentCard').textContent = reviewed;
-      document.getElementById('totalCards').textContent = totalCards;
-    }
+      // Flashcard functionality
+      const flashcards = document.querySelectorAll('.flashcard');
+      const totalCards = flashcards.length;
+
+      flashcards.forEach((card) => {
+        card.addEventListener('click', () => {
+          card.classList.toggle('flipped');
+          
+          const cardId = card.dataset.id;
+          if (!reviewedCards.has(cardId)) {
+            reviewedCards.add(cardId);
+            updateProgress();
+          }
+        });
+      });
+
+      function updateProgress() {
+        const reviewed = reviewedCards.size;
+        const percentage = (reviewed / totalCards) * 100;
+        
+        document.getElementById('progressFill').style.width = percentage + '%';
+        document.getElementById('currentCard').textContent = reviewed;
+        document.getElementById('totalCards').textContent = totalCards;
+      }
+    });
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e4ac8f3d2f84b79',t:'MTc3NDkxMjE5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e4b05096353121c',t:'MTc3NDkxNDY1OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
