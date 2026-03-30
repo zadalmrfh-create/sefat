@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="ar">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بطاقات التوحيد</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <style>
+    * {
+      direction: rtl;
+    }
+
+    .flashcard {
+      perspective: 1000px;
+      cursor: pointer;
+      min-height: 300px;
+    }
+
+    .flashcard-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      min-height: 300px;
+    }
+
+    .flashcard.flipped .flashcard-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flashcard-front, .flashcard-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .flashcard-front {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: 2px solid #667eea;
+    }
+
+    .flashcard-back {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      border: 2px solid #f5576c;
+      transform: rotateY(180deg);
+    }
+
+    .flashcard-text {
+      text-align: center;
+      width: 100%;
+    }
+
+    .hint {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    .progress-bar {
+      height: 6px;
+      background-color: #e5e7eb;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      transition: width 0.3s ease;
+    }
+
+    .counter {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .flashcard-front, .flashcard-back {
+        font-size: 1rem;
+        padding: 1.5rem;
+        min-height: 250px;
+      }
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full bg-gradient-to-br from-slate-50 to-slate-100">
+  <div class="app-wrapper w-full h-full overflow-auto">
+   <div class="min-h-full w-full max-w-4xl mx-auto p-6">
+    <!-- Header -->
+    <div class="mb-8 text-center animate-fade-in">
+     <h1 class="page-title text-4xl font-bold text-slate-800 mb-2">بطاقات التوحيد التفاعلية</h1>
+     <p class="lesson-name text-lg text-slate-600">الصفات السلبية وأدلتها</p>
+    </div><!-- Flashcards Container -->
+    <div class="space-y-6">
+     <!-- Flashcard 1 -->
+     <div class="flashcard" data-id="1">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال الأول</p>
+         <p>ما معنى القدم؟ ولماذا تسمى بصفة الأولية؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p><strong>المعنى:</strong> عدم بداية وجود الله، أو عدم افتتاح الوجود</p>
+         <p class="mt-3"><strong>الأولية:</strong> تسمى بذلك موافقة لقوله تعالى (هُوَ الْأَوَّلُ)</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 2 -->
+     <div class="flashcard" data-id="2">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال الثاني</p>
+         <p>ما أنواع القدم وأيها ثابت لله تعالى؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p><strong>1. القدم الذاتي:</strong> عدم افتتاح الوجود (الثابت لله ✓)</p>
+         <p class="mt-2"><strong>2. القدم الزماني:</strong> طول مدة الوجود (محال على الله)</p>
+         <p class="mt-2"><strong>3. القدم الإضافي:</strong> سبق شيء لآخر (محال على الله)</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 3 -->
+     <div class="flashcard" data-id="3">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال الثالث</p>
+         <p>ما الدليل العقلي على إثبات صفة القدم؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p>لو لم يكن الله قديماً لكان حادثاً، وكل حادث يحتاج محدث، فيلزم الدور أو التسلسل، وكلاهما محال</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 4 -->
+     <div class="flashcard" data-id="4">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال الرابع</p>
+         <p>ما الفرق بين القديم والأزلي؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p><strong>الأزلي:</strong> ما لا أول له (وجودي أو عدمي)</p>
+         <p class="mt-2"><strong>القديم:</strong> الموجود الذي لا أول لوجوده (يخرج به المعدوم)</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 5 -->
+     <div class="flashcard" data-id="5">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال الخامس</p>
+         <p>ما معنى صفة البقاء وما ضدها؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p><strong>المعنى:</strong> عدم آخرية الوجود (الله باقٍ لا انتهاء لوجوده)</p>
+         <p class="mt-3"><strong>الضد:</strong> الفناء</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 6 -->
+     <div class="flashcard" data-id="6">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال السادس</p>
+         <p>ما الدليل العقلي على البقاء؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p>لو جاز عليه العدم لاستحال عليه القدم، وما ثبت قدمه استحال عدمه</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 7 -->
+     <div class="flashcard" data-id="7">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال السابع</p>
+         <p>ما معنى قيام الله بنفسه؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p>أنه تعالى غير مفتقر إلى موجد (مؤثر)، ولا إلى محل (ذات أو مكان يقوم به)</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 8 -->
+     <div class="flashcard" data-id="8">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال الثامن</p>
+         <p>ما معنى صفة الوحدانية؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p>عدم التعدد في ذاته وصفاته وأفعاله</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 9 -->
+     <div class="flashcard" data-id="9">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال التاسع</p>
+         <p>ما أشكال نفي التعدد في الوحدانية؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p><strong>في الذات:</strong> نفي التركيب من أجزاء ونفي وجود نظير</p>
+         <p class="mt-2"><strong>في الصفات:</strong> نفي الكثرة في الصفة ونفي وجود نظير</p>
+         <p class="mt-2"><strong>في الأفعال:</strong> الله وحده الخالق ولا خالق سواه</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 10 -->
+     <div class="flashcard" data-id="10">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال العاشر</p>
+         <p>ما مكانة مبحث الوحدانية؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p>أشرف مباحث هذا الفن (علم التوحيد)، ولذا سمي العلم باسم مشتق منها</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 11 -->
+     <div class="flashcard" data-id="11">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال الحادي عشر</p>
+         <p>ما ضد القدم وما تعريفه؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p><strong>الحدوث:</strong> هو الوجود المسبوق بالعدم</p>
+         <p class="mt-2">وهو ضد صفة القدم</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 12 -->
+     <div class="flashcard" data-id="12">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال الثاني عشر</p>
+         <p>لماذا تسمى صفة البقاء بصفة الآخرية؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p>موافقة لقوله تعالى: ﴿ هُوَ الْأَوَّلُ وَالْآخِرُ ﴾</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 13 -->
+     <div class="flashcard" data-id="13">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال الثالث عشر</p>
+         <p>ما الدليل النقلي على صفة البقاء؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p>﴿ كُلُّ مَنْ عَلَيْهَا فَانٍ * وَيَبْقَى وَجْهُ رَبِّكَ ذُو الْجَلَالِ وَالْإِكْرَامِ ﴾</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 14 -->
+     <div class="flashcard" data-id="14">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال الرابع عشر</p>
+         <p>ما تعريف النفس وعلام تطلق؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p><strong>المراد بها:</strong> الذات</p>
+         <p class="mt-2"><strong>وتطلق على:</strong> الذات، الدم، التكبر، العقوبة</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 15 -->
+     <div class="flashcard" data-id="15">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال الخامس عشر</p>
+         <p>ما الدليل العقلي على قيام الله بنفسه؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p>لو احتاج لموجد لكان حادثاً، ولو احتاج لمحل لكان صفة، والصفة لا توصف بصفات المعاني، وكلاهما محال</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 16 -->
+     <div class="flashcard" data-id="16">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال السادس عشر</p>
+         <p>ما الدليل النقلي على قيام الله بنفسه؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p>﴿ اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ﴾</p>
+         <p class="mt-2">و ﴿ إِنَّ اللَّهَ هُوَ الْغَنِيُّ الْحَمِيدُ ﴾</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 17 -->
+     <div class="flashcard" data-id="17">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال السابع عشر</p>
+         <p>ما نفي التعدد في ذات الله تعالى؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p><strong>الكم المتصل:</strong> نفي التركيب من أجزاء</p>
+         <p class="mt-2"><strong>الكم المنفصل:</strong> نفي وجود ذات تشبه ذاته</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 18 -->
+     <div class="flashcard" data-id="18">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال الثامن عشر</p>
+         <p>ما نفي التعدد في صفات الله تعالى؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p><strong>الكم المتصل:</strong> نفي الكثرة في الصفة من نوع واحد (كقدرتين)</p>
+         <p class="mt-2"><strong>الكم المنفصل:</strong> نفي وجود نظير له في صفاته</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 19 -->
+     <div class="flashcard" data-id="19">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال التاسع عشر</p>
+         <p>ما نفي التعدد في أفعال الله تعالى؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p>نفي أن يكون لغير الله تعالى فعل وخلق يشبه فعله</p>
+         <p class="mt-2">فهو سبحانه الخالق وحده ولا خالق سواه</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 20 -->
+     <div class="flashcard" data-id="20">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال العشرون</p>
+         <p>كم عدد الصفات السلبية المدروسة؟ اذكرها</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p>خمس صفات:</p>
+         <p class="mt-2">1. القدم (عدم بداية الوجود)</p>
+         <p class="mt-1">2. البقاء (عدم النهاية)</p>
+         <p class="mt-1">3. القيام بالنفس (عدم الافتقار)</p>
+         <p class="mt-1">4. الوحدانية (عدم التعدد)</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 21 -->
+     <div class="flashcard" data-id="21">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال الحادي والعشرون</p>
+         <p>ما العلاقة بين القدم والحدوث؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p>لا واسطة بين القديم والحادث</p>
+         <p class="mt-2">كل موجود إما قديم أو حادث</p>
+         <p class="mt-2">الله تعالى قديم بذاته، محال عليه الحدوث</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 22 -->
+     <div class="flashcard" data-id="22">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال الثاني والعشرون</p>
+         <p>ما معنى الدور والتسلسل؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p><strong>الدور:</strong> توقف الشيء على نفسه مباشرة أو بواسطة</p>
+         <p class="mt-2"><strong>التسلسل:</strong> تسلسل العلل إلى ما لا نهاية</p>
+         <p class="mt-2">كلاهما محال عقلاً</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 23 -->
+     <div class="flashcard" data-id="23">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال الثالث والعشرون</p>
+         <p>هل يمكن أن يكون في الوجود واجبان؟ ولماذا؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p>لا، لا يمكن أن يكون في الوجود إلا واجب واحد</p>
+         <p class="mt-2">لأن التعدد يستلزم حدوث الصفات، والله منزه عن ذلك</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 24 -->
+     <div class="flashcard" data-id="24">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال الرابع والعشرون</p>
+         <p>ما الفرق بين الواجب والممكن؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p><strong>الواجب:</strong> ما لا يمكن أن يكون معدوماً</p>
+         <p class="mt-2"><strong>الممكن:</strong> ما يمكن أن يكون موجوداً أو معدوماً</p>
+         <p class="mt-2">الله واجب الوجود، والخلق ممكنون</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 25 -->
+     <div class="flashcard" data-id="25">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال الخامس والعشرون</p>
+         <p>لماذا سميت الصفات السلبية بهذا الاسم؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p>لأنها تنفي عن الله تعالى النقائص والعيوب</p>
+         <p class="mt-2">كنفي الحدوث والفناء والافتقار والتعدد</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 26 -->
+     <div class="flashcard" data-id="26">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال السادس والعشرون</p>
+         <p>هل القدم والبقاء صفة واحدة أم صفتان؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p>صفتان، لكنهما متلازمتان</p>
+         <p class="mt-2"><strong>القدم:</strong> نفي البداية</p>
+         <p class="mt-2"><strong>البقاء:</strong> نفي النهاية</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 27 -->
+     <div class="flashcard" data-id="27">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال السابع والعشرون</p>
+         <p>ما الفرق بين الصفات السلبية والصفات الثبوتية؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p><strong>السلبية:</strong> تنفي النقائص والعيوب</p>
+         <p class="mt-2"><strong>الثبوتية:</strong> تثبت الكمالات والمميزات</p>
+         <p class="mt-2">كالعلم والقدرة والإرادة والحكمة</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 28 -->
+     <div class="flashcard" data-id="28">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال الثامن والعشرون</p>
+         <p>كيف ننفي الافتقار عن الله تعالى؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p>بإثبات أنه غني عن كل ما سواه</p>
+         <p class="mt-2">لا يحتاج إلى موجد ولا إلى محل</p>
+         <p class="mt-2">بخلاف المخلوقات التي تحتاج إليه في وجودها وبقائها</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Flashcard 29 -->
+     <div class="flashcard" data-id="29">
+      <div class="flashcard-inner">
+       <div class="flashcard-front">
+        <div class="flashcard-text">
+         <p class="font-semibold mb-2">السؤال التاسع والعشرون</p>
+         <p>ما معنى الكم المتصل والكم المنفصل؟</p>
+         <div class="hint">
+          اضغط للإجابة
+         </div>
+        </div>
+       </div>
+       <div class="flashcard-back">
+        <div class="flashcard-text">
+         <p><strong>الكم المتصل:</strong> الأجزاء المتصلة كالجسم</p>
+         <p class="mt-2"><strong>الكم المنفصل:</strong> الأجزاء المنفصلة كالعدد</p>
+         <p class="mt-2">الله منزه عن كليهما</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div><!-- Progress Section -->
+    <div class="mt-10 p-6 bg-white rounded-lg shadow-md">
+     <p class="text-center text-slate-700 mb-3 font-semibold">تقدمك:</p>
+     <div class="progress-bar">
+      <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+     </div>
+     <div class="counter">
+      <span id="currentCard">0</span> من <span id="totalCards">29</span> بطاقة تمت مراجعتها
+     </div>
+    </div><!-- Footer -->
+    <div class="text-center mt-8 text-slate-600 text-sm pb-6">
+     <p>✨ استمر في المراجعة لإتقان الدروس</p>
+    </div>
+   </div>
+  </div>
+  <script>
+    const defaultConfig = {
+      page_title: "بطاقات التوحيد التفاعلية",
+      lesson_name: "الصفات السلبية وأدلتها"
+    };
+
+    let config = { ...defaultConfig };
+    let reviewedCards = new Set();
+
+    // Initialize Element SDK
+    window.elementSdk.init({
+      defaultConfig,
+      onConfigChange: (newConfig) => {
+        config = newConfig;
+        document.querySelector('.page-title').textContent = config.page_title || defaultConfig.page_title;
+        document.querySelector('.lesson-name').textContent = config.lesson_name || defaultConfig.lesson_name;
+      },
+      mapToCapabilities: (cfg) => ({
+        recolorables: [],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      }),
+      mapToEditPanelValues: (cfg) => new Map([
+        ["page_title", cfg.page_title || defaultConfig.page_title],
+        ["lesson_name", cfg.lesson_name || defaultConfig.lesson_name]
+      ])
+    });
+
+    // Flashcard functionality
+    const flashcards = document.querySelectorAll('.flashcard');
+    const totalCards = flashcards.length;
+
+    flashcards.forEach((card) => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+        
+        const cardId = card.dataset.id;
+        if (!reviewedCards.has(cardId)) {
+          reviewedCards.add(cardId);
+          updateProgress();
+        }
+      });
+    });
+
+    function updateProgress() {
+      const reviewed = reviewedCards.size;
+      const percentage = (reviewed / totalCards) * 100;
+      
+      document.getElementById('progressFill').style.width = percentage + '%';
+      document.getElementById('currentCard').textContent = reviewed;
+      document.getElementById('totalCards').textContent = totalCards;
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e4ac8f3d2f84b79',t:'MTc3NDkxMjE5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
